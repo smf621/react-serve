@@ -25,9 +25,9 @@ const UserModel = mongoose.model('user', userSchema) // 集合名: users
 function testSave() {
 // user 数据对象
     const user = {
-        username: 'xfzhang',
-        password: md5('1234'),
-        type: 'dashen',
+        username: 'smf',
+        password: md5('111'),
+        type: 'laoban',
     }
     const userModel = new UserModel(user)
 // 保存到数据库
@@ -35,4 +35,39 @@ function testSave() {
         console.log('save', err, user)
     })
 }
+
 // testSave()
+
+// 3.2. 通过Model 的find()/findOne()查询多个或一个数据
+function testFind() {
+// 查找多个
+    UserModel.find(function (err, users) { // 如果有匹配返回的是一个[user, user..], 如果
+        // 没有一个匹配的返回[]
+        console.log('find() ', err, users)
+    })
+// 查找一个
+    UserModel.findOne({_id: '5fe2a886f84d5133d8c20b54'}, function (err, user) { // 如果
+        // 有匹配返回的是一个user, 如果没有一个匹配的返回null
+        console.log('findOne() ', err, user)
+    })
+}
+
+// testFind()
+
+// 3.3. 通过Model 的findByIdAndUpdate()更新某个数据
+function testUpdate() {
+    UserModel.findByIdAndUpdate({_id: '5fe1bac884d57845445d88e3'}, {username: 'yyy'},
+        function (err, user) {
+            console.log('findByIdAndUpdate()', err, user)
+        })
+}
+
+// testUpdate()
+
+// 3.4. 通过Model 的remove()删除匹配的数据
+function testDelete() {
+    UserModel.remove({_id: '5fe1bac884d57845445d88e3'}, function (err, result) {
+        console.log('remove()', err, result)
+    })
+}
+testDelete()
