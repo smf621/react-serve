@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="smf@localhost">
+  <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.18">
+    <root id="1">
+      <ServerVersion>3.2.4</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="gzhipin"/>
+    <schema id="3" parent="1" name="gzhipin2"/>
+    <schema id="4" parent="1" name="gzhipin_test2"/>
+    <schema id="5" parent="1" name="local"/>
+    <schema id="6" parent="1" name="smf">
+      <Current>1</Current>
+    </schema>
+    <table id="7" parent="6" name="users"/>
+    <column id="8" parent="7" name="_id">
+      <DataType>ObjectId(0)|12s</DataType>
+    </column>
+    <column id="9" parent="7" name="__v">
+      <Position>1</Position>
+      <DataType>Integer|4s</DataType>
+    </column>
+    <column id="10" parent="7" name="company">
+      <Position>2</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="11" parent="7" name="header">
+      <Position>3</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="12" parent="7" name="info">
+      <Position>4</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="13" parent="7" name="password">
+      <Position>5</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="14" parent="7" name="post">
+      <Position>6</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="15" parent="7" name="salary">
+      <Position>7</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="16" parent="7" name="type">
+      <Position>8</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="17" parent="7" name="username">
+      <Position>9</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+  </database-model>
+</dataSource>

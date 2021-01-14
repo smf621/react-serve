@@ -54,4 +54,46 @@ router.post('/login', function (req, res) {
     })
 })
 
+//更新用户信息的路由
+router.post('/update', function (req, res) {
+    //从请求的cookie得到userid
+    const userid = req.cookies.userid
+    if (!userid) {
+        return res.send({code: 1, msg: '请先登录'})
+    }
+    //得到用户提交数据
+    const user = req.body
+    UserModel.findByIdAndUpdate({_id: userid}, user, function (err, oldUser) {
+        if (!oldUser) {
+            res.clearCookie('userid')
+            res.send({code: 1, msg: '请先登录'})
+        } else {
+            const {_id, username, type} = oldUser
+            const data = Object.assign({_id, username, type}, user)
+            res.send({code: 0, data})
+        }
+    })
+})
+//获取用户信息的路由
+router.get('/user', function (req, res) {
+    // 取出cookie 中的userid
+    const userid = req.cookies.userid
+    if (!userid) {
+        return res.send({code: 1, msg: '请先登陆'})
+    }
+    // 查询对应的user
+    UserModel.findOne({_id: userid}, filter, function (err, user) {
+        return res.send({code: 0, data: user})
+    })
+})
+
+
+// 获取用户列表(根据类型)
+router.get('/userlist', function (req, res) {
+    const {type} = req.query
+    UserModel.find({type}, filter, function (error, users) {
+        res.send({code: 0, data: users})
+    })
+})
+
 module.exports = router;

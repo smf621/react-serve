@@ -13,5 +13,11 @@
       <jdbc-driver>com.dbschema.MongoJdbcDriver</jdbc-driver>
       <jdbc-url>mongodb://localhost:27017/gzhipin</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="smf@localhost" uuid="d59c5e5d-5bca-477f-b57c-2723847ea0bd">
+      <driver-ref>mongo</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.dbschema.MongoJdbcDriver</jdbc-driver>
+      <jdbc-url>mongodb://localhost:27017/smf</jdbc-url>
+    </data-source>
   </component>
 </project>

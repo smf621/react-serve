@@ -27,5 +27,15 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="smf@localhost" uuid="d59c5e5d-5bca-477f-b57c-2723847ea0bd">
+      <database-info product="Mongo DB" version="3.2.4" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.8.2" dbms="MONGO" exact-version="3.2.4" exact-driver-version="1.8" />
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema" qname="@" />
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
   </component>
 </project>
